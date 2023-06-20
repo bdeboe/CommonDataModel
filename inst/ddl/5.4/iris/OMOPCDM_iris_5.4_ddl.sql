@@ -444,92 +444,83 @@ CREATE TABLE @cdmDatabaseSchema.METADATA (
 			metadata_id integer NOT NULL,
 			metadata_concept_id integer NOT NULL,
 			metadata_type_concept_id integer NOT NULL,
-			name varchar(250) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			value_as_string varchar(250) NULL WITH STORAGETYPE = COLUMNAR,
+			name varchar(250) NOT NULL,
+			value_as_string varchar(250) NULL,
 			value_as_concept_id integer NULL,
 			value_as_number NUMERIC NULL,
 			metadata_date date NULL,
 			metadata_datetime TIMESTAMP NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.CDM_SOURCE (
-			cdm_source_name varchar(255) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			cdm_source_abbreviation varchar(25) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			cdm_holder varchar(255) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			cdm_source_name varchar(255) NOT NULL,
+			cdm_source_abbreviation varchar(25) NOT NULL,
+			cdm_holder varchar(255) NOT NULL,
 			source_description TEXT NULL,
-			source_documentation_reference varchar(255) NULL WITH STORAGETYPE = COLUMNAR,
-			cdm_etl_reference varchar(255) NULL WITH STORAGETYPE = COLUMNAR,
+			source_documentation_reference varchar(255) NULL,
+			cdm_etl_reference varchar(255) NULL,
 			source_release_date date NOT NULL,
 			cdm_release_date date NOT NULL,
-			cdm_version varchar(10) NULL WITH STORAGETYPE = COLUMNAR,
+			cdm_version varchar(10) NULL,
 			cdm_version_concept_id integer NOT NULL,
 			vocabulary_version varchar(20) NOT NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.CONCEPT (
 			concept_id integer NOT NULL,
-			concept_name varchar(255) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			domain_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			vocabulary_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			concept_class_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			standard_concept varchar(1) NULL WITH STORAGETYPE = COLUMNAR,
-			concept_code varchar(50) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			concept_name varchar(255) NOT NULL,
+			domain_id varchar(20) NOT NULL,
+			vocabulary_id varchar(20) NOT NULL,
+			concept_class_id varchar(20) NOT NULL,
+			standard_concept varchar(1) NULL,
+			concept_code varchar(50) NOT NULL,
 			valid_start_date date NOT NULL,
 			valid_end_date date NOT NULL,
 			invalid_reason varchar(1) NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.VOCABULARY (
-			vocabulary_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			vocabulary_name varchar(255) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			vocabulary_reference varchar(255) NULL WITH STORAGETYPE = COLUMNAR,
-			vocabulary_version varchar(255) NULL WITH STORAGETYPE = COLUMNAR,
+			vocabulary_id varchar(20) NOT NULL,
+			vocabulary_name varchar(255) NOT NULL,
+			vocabulary_reference varchar(255) NULL,
+			vocabulary_version varchar(255) NULL,
 			vocabulary_concept_id integer NOT NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema."DOMAIN" (
-			domain_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			domain_name varchar(255) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			domain_id varchar(20) NOT NULL,
+			domain_name varchar(255) NOT NULL,
 			domain_concept_id integer NOT NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.CONCEPT_CLASS (
-			concept_class_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			concept_class_name varchar(255) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			concept_class_id varchar(20) NOT NULL,
+			concept_class_name varchar(255) NOT NULL,
 			concept_class_concept_id integer NOT NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.CONCEPT_RELATIONSHIP (
 			concept_id_1 integer NOT NULL,
 			concept_id_2 integer NOT NULL,
-			relationship_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			relationship_id varchar(20) NOT NULL,
 			valid_start_date date NOT NULL,
 			valid_end_date date NOT NULL,
 			invalid_reason varchar(1) NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.RELATIONSHIP (
-			relationship_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			relationship_name varchar(255) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			is_hierarchical varchar(1) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			defines_ancestry varchar(1) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			reverse_relationship_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			relationship_id varchar(20) NOT NULL,
+			relationship_name varchar(255) NOT NULL,
+			is_hierarchical varchar(1) NOT NULL,
+			defines_ancestry varchar(1) NOT NULL,
+			reverse_relationship_id varchar(20) NOT NULL,
 			relationship_concept_id integer NOT NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.CONCEPT_SYNONYM (
 			concept_id integer NOT NULL,
-			concept_synonym_name varchar(1000) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			concept_synonym_name varchar(1000),
 			language_concept_id integer NOT NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.CONCEPT_ANCESTOR (
@@ -537,20 +528,18 @@ CREATE TABLE @cdmDatabaseSchema.CONCEPT_ANCESTOR (
 			descendant_concept_id integer NOT NULL,
 			min_levels_of_separation integer NOT NULL,
 			max_levels_of_separation integer NOT NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.SOURCE_TO_CONCEPT_MAP (
-			source_code varchar(50) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			source_code varchar(50) NOT NULL,
 			source_concept_id integer NOT NULL,
-			source_vocabulary_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
-			source_code_description varchar(255) NULL WITH STORAGETYPE = COLUMNAR,
+			source_vocabulary_id varchar(20) NOT NULL,
+			source_code_description varchar(255) NULL,
 			target_concept_id integer NOT NULL,
-			target_vocabulary_id varchar(20) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			target_vocabulary_id varchar(20) NOT NULL,
 			valid_start_date date NOT NULL,
 			valid_end_date date NOT NULL,
 			invalid_reason varchar(1) NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.DRUG_STRENGTH (
@@ -566,7 +555,6 @@ CREATE TABLE @cdmDatabaseSchema.DRUG_STRENGTH (
 			valid_start_date date NOT NULL,
 			valid_end_date date NOT NULL,
 			invalid_reason varchar(1) NULL )
-	WITH STORAGETYPE = COLUMNAR
 ;
  
 CREATE TABLE @cdmDatabaseSchema.COHORT (
@@ -579,10 +567,10 @@ CREATE TABLE @cdmDatabaseSchema.COHORT (
  
 CREATE TABLE @cdmDatabaseSchema.COHORT_DEFINITION (
 			cohort_definition_id integer NOT NULL,
-			cohort_definition_name varchar(255) NOT NULL WITH STORAGETYPE = COLUMNAR,
+			cohort_definition_name varchar(255) NOT NULL,
 			cohort_definition_description TEXT NULL,
 			definition_type_concept_id integer NOT NULL,
 			cohort_definition_syntax TEXT NULL,
 			subject_concept_id integer NOT NULL,
 			cohort_initiation_date date NULL )
-	WITH STORAGETYPE = COLUMNAR;
+;
