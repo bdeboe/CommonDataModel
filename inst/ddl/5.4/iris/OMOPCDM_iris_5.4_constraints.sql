@@ -468,7 +468,7 @@ ALTER TABLE @cdmDatabaseSchema.CONCEPT ADD CONSTRAINT fpk_CONCEPT_concept_class_
 ALTER TABLE @cdmDatabaseSchema.VOCABULARY ADD CONSTRAINT fpk_VOCABULARY_vocabulary_concept_id FOREIGN KEY (vocabulary_concept_id) REFERENCES @cdmDatabaseSchema.CONCEPT (CONCEPT_ID)
 ;
 
-ALTER TABLE @cdmDatabaseSchema.DOMAIN ADD CONSTRAINT fpk_DOMAIN_domain_concept_id FOREIGN KEY (domain_concept_id) REFERENCES @cdmDatabaseSchema.CONCEPT (CONCEPT_ID)
+ALTER TABLE @cdmDatabaseSchema."DOMAIN" ADD CONSTRAINT fpk_DOMAIN_domain_concept_id FOREIGN KEY (domain_concept_id) REFERENCES @cdmDatabaseSchema.CONCEPT (CONCEPT_ID)
 ;
 
 ALTER TABLE @cdmDatabaseSchema.CONCEPT_CLASS ADD CONSTRAINT fpk_CONCEPT_CLASS_concept_class_concept_id FOREIGN KEY (concept_class_concept_id) REFERENCES @cdmDatabaseSchema.CONCEPT (CONCEPT_ID)
