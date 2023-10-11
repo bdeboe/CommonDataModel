@@ -37,7 +37,7 @@ writeIndex(
 }
 \arguments{
 \item{targetDialect}{The dialect of the target database. Choices are "oracle", "postgresql", "pdw", "redshift", "impala", "netezza", "bigquery", "sql server",
-"spark", "snowflake", "synapse"}
+"spark", "snowflake", "synapse", "iris"}
 
 \item{cdmVersion}{The version of the CDM you are creating, e.g. 5.3, 5.4}
 
